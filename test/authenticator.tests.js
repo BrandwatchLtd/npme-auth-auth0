@@ -67,7 +67,7 @@ test('authenticating with bad credentials', t => {
     const email = 'graham@brandwatch.com';
     const password = 'fake';
 
-    const Authenticator = sandboxedModule.require('../lib/authenticator', {
+    const Authenticator = sandboxedModule.require('../lib/Authenticator', {
         requires: {
             './appConfig': {
                 auth0Connection,
