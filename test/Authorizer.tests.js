@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 'use strict';
 
 const test = require('tape');
