@@ -10,10 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@npm/enterprise-configurator": "git://github.com/npm/enterprise-configurator#v0.1.30",
     "axios": "^0.16.1",
     "jsonwebtoken": "^7.4.1",
-    "konfiga": "^2.0.0"
+    "konfiga": "^2.0.0",
+    "load-json-file": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "3.2.2",
