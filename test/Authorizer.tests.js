@@ -13,8 +13,10 @@ test('authorizes a package write for an admin with a package scope that matches 
         }
     };
     const decodeStub = sinon.stub().returns({
-        admin: true,
-        bucket: 'fakeOrg'
+        app_metadata: {
+            admin: true,
+            bucket: 'fakeOrg'
+        }
     });
     const loadStub = sinon.stub().returns(Promise.resolve(fakeRes));
     const Authorizer = sandboxedModule.require('../lib/Authorizer', {
@@ -56,8 +58,10 @@ test('authorizes a package write for an admin with a package scope that does not
         }
     };
     const decodeStub = sinon.stub().returns({
-        admin: true,
-        bucket: 'aDifferentOrg'
+        app_metadata: {
+            admin: true,
+            bucket: 'aDifferentOrg'
+        }
     });
     const loadStub = sinon.stub().returns(Promise.resolve(fakeRes));
     const Authorizer = sandboxedModule.require('../lib/Authorizer', {
@@ -99,8 +103,10 @@ test('authorizes a package write for a non-admin with a package scope that match
         }
     };
     const decodeStub = sinon.stub().returns({
-        admin: false,
-        bucket: 'fakeOrg'
+        app_metadata: {
+            admin: false,
+            bucket: 'fakeOrg'
+        }
     });
     const loadStub = sinon.stub().returns(Promise.resolve(fakeRes));
     const Authorizer = sandboxedModule.require('../lib/Authorizer', {
@@ -142,8 +148,10 @@ test('does not authorize a package write for a non-admin with a package scope th
         }
     };
     const decodeStub = sinon.stub().returns({
-        admin: false,
-        bucket: 'differentOrg'
+        app_metadata: {
+            admin: false,
+            bucket: 'differentOrg'
+        }
     });
     const loadStub = sinon.stub().returns(Promise.resolve(fakeRes));
     const Authorizer = sandboxedModule.require('../lib/Authorizer', {
@@ -185,8 +193,10 @@ test('authorizes a package write for a non-admin with a package scope that match
         }
     };
     const decodeStub = sinon.stub().returns({
-        admin: false,
-        bucket: 'personal-bucket'
+        app_metadata: {
+            admin: false,
+            bucket: 'personal-bucket'
+        }
     });
     const loadStub = sinon.stub().returns(Promise.resolve(fakeRes));
     const Authorizer = sandboxedModule.require('../lib/Authorizer', {
@@ -230,8 +240,10 @@ test('authorizes a package read for an admin with a package scope that matches t
         }
     };
     const decodeStub = sinon.stub().returns({
-        admin: true,
-        bucket: 'fakeOrg'
+        app_metadata: {
+            admin: true,
+            bucket: 'fakeOrg'
+        }
     });
     const loadStub = sinon.stub().returns(Promise.resolve(fakeRes));
     const Authorizer = sandboxedModule.require('../lib/Authorizer', {
@@ -273,8 +285,10 @@ test('authorizes a package read for an admin with a package scope that does not 
         }
     };
     const decodeStub = sinon.stub().returns({
-        admin: true,
-        bucket: 'adminOrg'
+        app_metadata: {
+            admin: true,
+            bucket: 'adminOrg'
+        }
     });
     const loadStub = sinon.stub().returns(Promise.resolve(fakeRes));
     const Authorizer = sandboxedModule.require('../lib/Authorizer', {
@@ -316,8 +330,10 @@ test('authorizes a package read for an admin with no package scope', t => {
         }
     };
     const decodeStub = sinon.stub().returns({
-        admin: true,
-        bucket: 'fakeOrg'
+        app_metadata: {
+            admin: true,
+            bucket: 'fakeOrg'
+        }
     });
     const loadStub = sinon.stub().returns(Promise.resolve(fakeRes));
     const Authorizer = sandboxedModule.require('../lib/Authorizer', {
@@ -359,8 +375,10 @@ test('authorizes a package read for a non-admin with a package scope that matche
         }
     };
     const decodeStub = sinon.stub().returns({
-        admin: false,
-        bucket: 'fakeOrg'
+        app_metadata: {
+            admin: false,
+            bucket: 'fakeOrg'
+        }
     });
     const loadStub = sinon.stub().returns(Promise.resolve(fakeRes));
     const Authorizer = sandboxedModule.require('../lib/Authorizer', {
@@ -402,8 +420,10 @@ test('does not authorize a package read for a non-admin with a package scope tha
         }
     };
     const decodeStub = sinon.stub().returns({
-        admin: false,
-        bucket: 'differentOrg'
+        app_metadata: {
+            admin: false,
+            bucket: 'differentOrg'
+        }
     });
     const loadStub = sinon.stub().returns(Promise.resolve(fakeRes));
     const Authorizer = sandboxedModule.require('../lib/Authorizer', {
@@ -445,8 +465,10 @@ test('authorizes a package read for a non-admin with no package scope', t => {
         }
     };
     const decodeStub = sinon.stub().returns({
-        admin: false,
-        bucket: 'fakeOrg'
+        app_metadata: {
+            admin: false,
+            bucket: 'fakeOrg'
+        }
     });
     const loadStub = sinon.stub().returns(Promise.resolve(fakeRes));
     const Authorizer = sandboxedModule.require('../lib/Authorizer', {
@@ -488,8 +510,10 @@ test('authorizes a package read for a non-admin with a package scope that matche
         }
     };
     const decodeStub = sinon.stub().returns({
-        admin: false,
-        bucket: 'personal-bucket'
+        app_metadata: {
+            admin: false,
+            bucket: 'personal-bucket'
+        }
     });
     const loadStub = sinon.stub().returns(Promise.resolve(fakeRes));
     const Authorizer = sandboxedModule.require('../lib/Authorizer', {
