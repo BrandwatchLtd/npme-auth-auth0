@@ -14,7 +14,9 @@
     "jsonwebtoken": "^7.4.1",
     "konfiga": "^2.0.0",
     "load-json-file": "^2.0.0",
-    "redis": "^2.7.1"
+    "redis": "^2.7.1",
+    "winston": "^2.3.1",
+    "winston-logrotate": "^1.0.1"
   },
   "devDependencies": {
     "eslint": "3.2.2",
