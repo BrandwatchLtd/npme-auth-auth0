@@ -37,7 +37,7 @@ test('authenticating with good credentials', t => {
 
     const scope = nock(`https://${auth0Domain}:443`, {encodedQueryParams: true})
         .post('/oauth/ro', {
-            username: email,
+            username: name,
             password,
             connection: auth0Connection,
             client_id: auth0ClientId,
@@ -91,7 +91,7 @@ test('authenticating with bad credentials', t => {
 
     const scope = nock(`https://${auth0Domain}:443`, {encodedQueryParams: true})
         .post('/oauth/ro', {
-            username: email,
+            username: name,
             password,
             connection: auth0Connection,
             client_id: auth0ClientId,
