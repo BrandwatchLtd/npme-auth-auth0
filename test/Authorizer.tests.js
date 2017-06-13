@@ -5,6 +5,15 @@ const test = require('tape');
 const sinon = require('sinon');
 const sandboxedModule = require('sandboxed-module');
 
+function fakeLogger() {
+    return {
+        debug: sinon.stub(),
+        info: sinon.stub(),
+        warn: sinon.stub(),
+        error: sinon.stub()
+    };
+}
+
 /* writing packages */
 test('authorizes a package write for an admin with a package scope that matches their user bucket', t => {
     const fakeRes = {
@@ -29,7 +38,8 @@ test('authorizes a package write for an admin with a package scope that matches 
             },
             './packageJSONLoader': {
                 load: loadStub
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const instance = new Authorizer();
@@ -74,7 +84,8 @@ test('authorizes a package write for an admin with a package scope that does not
             },
             './packageJSONLoader': {
                 load: loadStub
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const instance = new Authorizer();
@@ -119,7 +130,8 @@ test('authorizes a package write for a non-admin with a package scope that match
             },
             './packageJSONLoader': {
                 load: loadStub
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const instance = new Authorizer();
@@ -164,7 +176,8 @@ test('does not authorize a package write for a non-admin with a package scope th
             },
             './packageJSONLoader': {
                 load: loadStub
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const instance = new Authorizer();
@@ -209,7 +222,8 @@ test('authorizes a package write for a non-admin with a package scope that match
             },
             './packageJSONLoader': {
                 load: loadStub
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const instance = new Authorizer();
@@ -256,7 +270,8 @@ test('authorizes a package read for an admin with a package scope that matches t
             },
             './packageJSONLoader': {
                 load: loadStub
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const instance = new Authorizer();
@@ -301,7 +316,8 @@ test('authorizes a package read for an admin with a package scope that does not 
             },
             './packageJSONLoader': {
                 load: loadStub
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const instance = new Authorizer();
@@ -346,7 +362,8 @@ test('authorizes a package read for an admin with no package scope', t => {
             },
             './packageJSONLoader': {
                 load: loadStub
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const instance = new Authorizer();
@@ -391,7 +408,8 @@ test('authorizes a package read for a non-admin with a package scope that matche
             },
             './packageJSONLoader': {
                 load: loadStub
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const instance = new Authorizer();
@@ -436,7 +454,8 @@ test('does not authorize a package read for a non-admin with a package scope tha
             },
             './packageJSONLoader': {
                 load: loadStub
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const instance = new Authorizer();
@@ -481,7 +500,8 @@ test('authorizes a package read for a non-admin with no package scope', t => {
             },
             './packageJSONLoader': {
                 load: loadStub
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const instance = new Authorizer();
@@ -526,7 +546,8 @@ test('authorizes a package read for a non-admin with a package scope that matche
             },
             './packageJSONLoader': {
                 load: loadStub
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const instance = new Authorizer();

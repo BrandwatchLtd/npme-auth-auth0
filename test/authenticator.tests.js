@@ -1,8 +1,18 @@
 'use strict';
 
 const test = require('tape');
+const sinon = require('sinon');
 const nock = require('nock');
 const sandboxedModule = require('sandboxed-module');
+
+function fakeLogger() {
+    return {
+        debug: sinon.stub(),
+        info: sinon.stub(),
+        warn: sinon.stub(),
+        error: sinon.stub()
+    };
+}
 
 test('authenticating with good credentials', t => {
     const auth0Connection = 'Username-Password-Authentication';
@@ -20,7 +30,8 @@ test('authenticating with good credentials', t => {
                 auth0ClientId,
                 auth0Domain,
                 auth0Scope
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const credentials = {
@@ -74,7 +85,8 @@ test('authenticating with bad credentials', t => {
                 auth0ClientId,
                 auth0Domain,
                 auth0Scope
-            }
+            },
+            './logger': fakeLogger()
         }
     });
     const credentials = {
