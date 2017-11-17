@@ -17,9 +17,7 @@ function fakeLogger() {
 /* writing packages */
 test('authorizes a package write for an admin with a package scope that matches their user bucket', t => {
     const fakeRes = {
-        body: {
-            name: '@fakeOrg/packageName'
-        }
+        name: '@fakeOrg/packageName'
     };
     const decodeStub = sinon.stub().returns({
         admin: true,
@@ -61,9 +59,7 @@ test('authorizes a package write for an admin with a package scope that matches 
 });
 test('authorizes a package write for an admin with a package scope that does not match the user bucket', t => {
     const fakeRes = {
-        body: {
-            name: '@fakeOrg/packageName'
-        }
+        name: '@fakeOrg/packageName'
     };
     const decodeStub = sinon.stub().returns({
         admin: true,
@@ -105,9 +101,7 @@ test('authorizes a package write for an admin with a package scope that does not
 });
 test('authorizes a package write for a non-admin with a package scope that matches their user bucket', t => {
     const fakeRes = {
-        body: {
-            name: '@fakeOrg/packageName'
-        }
+        name: '@fakeOrg/packageName'
     };
     const decodeStub = sinon.stub().returns({
         admin: false,
@@ -149,9 +143,7 @@ test('authorizes a package write for a non-admin with a package scope that match
 });
 test('does not authorize a package write for a non-admin with a package scope that does not match the user bucket', t => {
     const fakeRes = {
-        body: {
-            name: '@fakeOrg/packageName'
-        }
+        name: '@fakeOrg/packageName'
     };
     const decodeStub = sinon.stub().returns({
         admin: false,
@@ -193,9 +185,7 @@ test('does not authorize a package write for a non-admin with a package scope th
 });
 test('authorizes a package write for a non-admin with a package scope that matches `appConfig.alwaysAllowedForWrites`', t => {
     const fakeRes = {
-        body: {
-            name: '@fakeOrg/packageName'
-        }
+        name: '@fakeOrg/packageName'
     };
     const decodeStub = sinon.stub().returns({
         admin: false,
@@ -239,9 +229,7 @@ test('authorizes a package write for a non-admin with a package scope that match
 /* reading packages */
 test('authorizes a package read for an admin with a package scope that matches their user bucket', t => {
     const fakeRes = {
-        body: {
-            name: '@fakeOrg/packageName'
-        }
+        name: '@fakeOrg/packageName'
     };
     const decodeStub = sinon.stub().returns({
         admin: true,
@@ -283,9 +271,7 @@ test('authorizes a package read for an admin with a package scope that matches t
 });
 test('authorizes a package read for an admin with a package scope that does not match the user bucket', t => {
     const fakeRes = {
-        body: {
-            name: '@fakeOrg/packageName'
-        }
+        name: '@fakeOrg/packageName'
     };
     const decodeStub = sinon.stub().returns({
         admin: true,
@@ -327,9 +313,7 @@ test('authorizes a package read for an admin with a package scope that does not 
 });
 test('authorizes a package read for an admin with no package scope', t => {
     const fakeRes = {
-        body: {
-            name: 'packageName'
-        }
+        name: 'packageName'
     };
     const decodeStub = sinon.stub().returns({
         admin: true,
@@ -371,9 +355,7 @@ test('authorizes a package read for an admin with no package scope', t => {
 });
 test('authorizes a package read for a non-admin with a package scope that matches their user bucket', t => {
     const fakeRes = {
-        body: {
-            name: '@fakeOrg/packageName'
-        }
+        name: '@fakeOrg/packageName'
     };
     const decodeStub = sinon.stub().returns({
         admin: false,
@@ -415,9 +397,7 @@ test('authorizes a package read for a non-admin with a package scope that matche
 });
 test('does not authorize a package read for a non-admin with a package scope that does not match the user bucket', t => {
     const fakeRes = {
-        body: {
-            name: '@fakeOrg/packageName'
-        }
+        name: '@fakeOrg/packageName'
     };
     const decodeStub = sinon.stub().returns({
         admin: false,
@@ -459,9 +439,7 @@ test('does not authorize a package read for a non-admin with a package scope tha
 });
 test('authorizes a package read for a non-admin with no package scope', t => {
     const fakeRes = {
-        body: {
-            name: 'packageName'
-        }
+        name: 'packageName'
     };
     const decodeStub = sinon.stub().returns({
         admin: false,
@@ -503,9 +481,7 @@ test('authorizes a package read for a non-admin with no package scope', t => {
 });
 test('authorizes a package read for a non-admin with a package scope that matches `appConfig.alwaysAllowedForWrites`', t => {
     const fakeRes = {
-        body: {
-            name: '@fakeOrg/packageName'
-        }
+        name: '@fakeOrg/packageName'
     };
     const decodeStub = sinon.stub().returns({
         admin: false,
