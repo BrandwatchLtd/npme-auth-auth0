@@ -18,7 +18,25 @@ On the server:
     "auth0Connection": "", // name of the auth0 connection
     "auth0ClientId": "", // auth0 client id
     "auth0Secret": "", // auth0 client id
-    "auth0Domain": "" // auth0 domain
+    "auth0Domain": "" // auth0 domain,
+    "metadataNamespace": "" // namespace used for your auth0 rules (see below)
+}
+```
+
+In auth0:
+
+set up a rule to enrich the profile returned with the `admin` and `bucket` properties:
+
+```
+function (user, context, callback) {
+  const namespace = 'https://my.cool.unique.namespace';
+  console.log(context.connection, context.connection === 'npme-external-users');
+  if (context.connection === 'npme-external-users') {
+    context.idToken[`${namespace}/admin`] = user.app_metadata.admin;
+    context.idToken[`${namespace}/bucket`] = user.app_metadata.bucket;
+  }
+
+  callback(null, user, context);
 }
 ```
 
